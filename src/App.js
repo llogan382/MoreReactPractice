@@ -7,14 +7,15 @@ class NameForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setState({ value: this.element.value });
+    console.log(this.element.value);
+    this.setState({ value: [...this.state.value, this.element.value] });
   }
 
 
