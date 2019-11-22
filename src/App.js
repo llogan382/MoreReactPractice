@@ -7,7 +7,7 @@ class NameForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: []
+      value: ['Luke', 'Eli']
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -32,13 +32,22 @@ class NameForm extends React.Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
-        <p>{this.state.value}</p>
+        <Child2 dateFromParent={this.state.value} />
       </div>
 
     );
   }
 }
 
+class Child2 extends React.Component {
+  render() {
+    return (
+      <div>
+        {this.props.dateFromParent}
+      </div>
+    );
+  }
+}
 
 
 
