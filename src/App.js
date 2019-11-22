@@ -7,48 +7,37 @@ class NameForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: []
+      value: ''
     };
-
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  onSubmit = (event) => {
+  handleSubmit(event) {
     event.preventDefault();
-    alert('You are submitting' + this.state.name);
+    this.setState({ value: this.element.value });
   }
 
-  onChange = (e) => {
-    this.setState({ [e.target.name]: [...this.state.name, e.target.value] });
-  }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <label>
             Name:
-          <input name="name" value={this.state.value} onChange={this.onChange} />
+            <input
+              type="text"
+              ref={el => this.element = el}
+            />
           </label>
           <input type="submit" value="Submit" />
         </form>
+        <p>{this.state.value}</p>
       </div>
 
     );
   }
 }
 
-class ListNames extends React.Component {
-  constructor(props) {
-    super(props);
-    this.setState = {
-      value: this.props.name
-    }
-  }
-  render() {
-    return <h1>{this.props.name}</h1>
-
-  }
-}
 
 
 
