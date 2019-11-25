@@ -20,10 +20,10 @@ const user = {
     lastName: 'Register'
 };
 
-const element = (
-    <h1>
-        {getGreeting(user)}!
-    </h1>
+const element = React.createElement(
+    'h1',
+    { className: 'greeting' },
+    'Hello, world!'
 );
 
 ReactDOM.render(
