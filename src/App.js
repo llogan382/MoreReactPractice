@@ -4,39 +4,33 @@ import './App.css';
 
 
 class NameForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: []
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    console.log(this.element.value);
-    this.setState({ value: [...this.state.value, this.element.value] });
-  }
+  const Form = props => {
+    const [username, setUsername] = setState()
 
+    const handleChangeUsername = e => {
+      setUsername(e.target.value)
+    }
 
-  render() {
-    return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Name:
-            <input
-              type="text"
-              ref={el => this.element = el}
-            />
-          </label>
-          <input type="submit" value="Submit" />
+    const handleSubmit = event => {
+      alert(username)
+      event.preventDefault()
+    }
+    render(){
+      return (
+        <form onSubmit={handleSubmit}>
+          Username:
+        <input type="text"
+            value={username}
+            onChange={handleChangeUsername}
+          />
+
         </form>
-        <p>{this.state.value}</p>
-      </div>
-
-    );
+      )
+    }
   }
+
+
 }
 
 
