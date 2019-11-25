@@ -2,15 +2,11 @@ import React from 'react';
 import './App.css';
 
 
-
-class NameForm extends React.Component {
-
-<h1>Hello </h1>
-
-
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>
+  }
 }
 
 
-
-
-export default NameForm;
+export default Welcome;
